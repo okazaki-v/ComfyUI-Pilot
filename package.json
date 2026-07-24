@@ -1,0 +1,61 @@
+{
+  "name": "comfy-pilot",
+  "version": "1.0.0",
+  "description": "ComfyUI 桌面驾驶舱：沉浸式工作区 + 任务栏实时监控",
+  "main": "out/main/index.js",
+  "author": "soofany",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "start": "electron-vite preview",
+    "dist": "electron-vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^37.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.1.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.3.5"
+  },
+  "build": {
+    "appId": "com.soofany.comfypilot",
+    "productName": "ComfyPilot",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "!src/**",
+      "!docs/**",
+      "!dist/**",
+      "!electron.vite.config.ts",
+      "!tsconfig*.json",
+      "!README.md",
+      "!.gitignore"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}

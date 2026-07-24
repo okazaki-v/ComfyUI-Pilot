@@ -1,0 +1,11 @@
+# 依赖与构建产物
+node_modules/
+out/
+dist/
+
+# 内部文档（不随仓库分发）
+docs/
+
+# 杂项
+*.log
+.DS_Store
